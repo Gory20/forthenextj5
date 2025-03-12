@@ -13,12 +13,15 @@ phases:
   
   build:
     commands:
-      - echo "Testing phase started on `date`"
-      - mvn -s settings.xml test
-      - echo "Testing phase completed on `date`"
-      - echo "Build phase started on `date`"
+      - echo "====== BEGINNING TEST PHASE ======"
+      - echo "Running tests on `date`"
+      - chmod +x run-tests.sh
+      - ./run-tests.sh
+      - echo "====== TEST PHASE COMPLETE ======"
+      - echo "====== BEGINNING BUILD PHASE ======"
+      - echo "Build started on `date`"
       - mvn -s settings.xml compile
-      - echo "Build phase completed on `date`"
+      - echo "====== BUILD PHASE COMPLETE ======"
   
   post_build:
     commands:
