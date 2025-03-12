@@ -11,14 +11,11 @@ phases:
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 471112976395 --query authorizationToken --output text`
       - echo "Pre-build phase completed on `date`"
   
-  test:
+  build:
     commands:
       - echo "Testing phase started on `date`"
       - mvn -s settings.xml test
       - echo "Testing phase completed on `date`"
-  
-  build:
-    commands:
       - echo "Build phase started on `date`"
       - mvn -s settings.xml compile
       - echo "Build phase completed on `date`"
